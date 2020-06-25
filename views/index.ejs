@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>LIST</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/send_url.js"></script>
+  </head>
+  <body>
+    <header>
+      <a href="/" class="header-logo">LIST</a>
+    </header>
+    <div class="container">
+      <div class="container-header">
+        <h1>Daftar Belanjaan</h1>
+        <a href="/new" class="new-button">+ Tambahkan</a>
+      </div>
+      <div class="index-table-wrapper">
+        <div class="table-head">
+          <span class="id-column">ID</span>
+          <span class="id-column">Nama</span>
+          <span class= "id-column">Keterangan</span>
+          <span class="id-column">harga</span>
+          <span class="id-column">jumlah</span>
+        </div>
+        <ul class="table-body">
+          <% items.forEach((item) => { %>
+            <li>
+              <div class="item-data">
+                <span class="id-column"><%= item.id %></span>
+                <span class="id-column"><%= item.nama_produk %></span>
+                <span class="name-column"><%= item.keterangan %></span>
+                <span class="name-column"><%= item.harga %></span>
+                <span class="name-column"><%= item.jumlah %></span>
+              </div>
+              <div class="item-menu">
+                <form action="/delete/<%= item.id %>" method="post">
+                  <input type="submit" value="Hapus">
+                </form>
+                <a href="/edit/<%= item.id %>">Edit</a>
+              </div>
+            </li>
+          <% }) %>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
